@@ -5,7 +5,8 @@ describe("Primer conjunto de pruebas", function () {
   beforeEach(() => {
     // Abrir la pagina
     //cy.visit("https://automationexercise.com/")
-    cy.visit("http://opencart.abstracta.us/");
+    //cy.visit("http://opencart.abstracta.us/");
+    cy.visit("https://testingcapitulovenezuela.club/abante");
   });
   /*
     //Caso de prueba 1
@@ -71,8 +72,6 @@ describe("Primer conjunto de pruebas", function () {
         cy.get('@ProductosPopulares')
         .find('.productinfo p')
         .each(($el,index, $list) =>{
-            var titulo = ''
-            var precio = ''
             cy.get('@ProductosPopulares').eq(index).find('h2').then(function($el1){
                 let precio = $el1.text()
                 cy.log(precio)
@@ -97,12 +96,34 @@ describe("Primer conjunto de pruebas", function () {
         })
 
         
-    }) */
+    }) 
 
-  //Caso de prueba 4
+  //Caso de prueba 5
   it("Verificar drop down", () => {
     cy.get(".nav > :nth-child(4) > a").click();
     cy.get('#input-sort').select('Model (A - Z)').should('have.value','http://opencart.abstracta.us:80/index.php?route=product/category&path=57&sort=rating&order=DESC')
 
+  });*/
+
+  //Caso de prueba 6
+
+  it("Crear una compra desde 0", () => {
+    cy.get("#filter_keyword").click().type("makeup");
+
+    cy.get(".button-in-search > .fa").click();
+    cy.get(".contentpanel .grid").as("GridProductos");
+
+    cy.get("@GridProductos")
+      .find(":nth-child(3) > .thumbnail > .pricetag > .productcart")
+      .click();
+
+    cy.get(".block_7 > .nav > .dropdown > .dropdown-toggle").click();
+
+    cy.get("#cart").find('.table a').then(function ($el) {
+        let nombre = $el.text()
+        cy.log(nombre)
+    }).should('chainers','BeneFit Girl Meets Pearl')
+    
+    cy.get("#cart").find('.table a').expect('BeneFit Girl Meets Pearl').to.exist
   });
 });
