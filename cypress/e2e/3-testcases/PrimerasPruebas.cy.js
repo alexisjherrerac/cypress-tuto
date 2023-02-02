@@ -1,14 +1,13 @@
 /// <reference types="cypress"/>
 
 //Suite de casos de pruebas
-describe('Primer conjunto de pruebas', function(){
-
-    beforeEach(()=>{
-        // Abrir la pagina
-        cy.visit("https://automationexercise.com/")
-
-    })
-/*
+describe("Primer conjunto de pruebas", function () {
+  beforeEach(() => {
+    // Abrir la pagina
+    //cy.visit("https://automationexercise.com/")
+    cy.visit("http://opencart.abstracta.us/");
+  });
+  /*
     //Caso de prueba 1
     it('Contabilizar cantidad de elementos en la pagina', function(){
         
@@ -61,7 +60,7 @@ describe('Primer conjunto de pruebas', function(){
         .should('be.visible')        
 
     })
-*/
+
     //Caso de prueba 3
     it('Verificamos que el Dropdown tenga los elementos previstos', () => {
         
@@ -98,6 +97,12 @@ describe('Primer conjunto de pruebas', function(){
         })
 
         
-    });
+    }) */
 
-})
+  //Caso de prueba 4
+  it("Verificar drop down", () => {
+    cy.get(".nav > :nth-child(4) > a").click();
+    cy.get('#input-sort').select('Model (A - Z)').should('have.value','http://opencart.abstracta.us:80/index.php?route=product/category&path=57&sort=rating&order=DESC')
+
+  });
+});
