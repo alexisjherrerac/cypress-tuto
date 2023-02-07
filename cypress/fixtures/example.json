@@ -1,15 +1,21 @@
 {
-  "nombre": "Alexis",
-  "apellido": "Herrera",
-  "email":"coreo@correo.com",
-  "nacionalidad": "Venezolano",
-  "telefono": "1234567890",
-  "sexo": "Male",
-  "fechaDeNacimiento":["December","1990","31"],
-  "materia":"Ingles",
-  "hobbies": ["Sports","Music"],
-  "imagen":"my-image.png",
-  "direccion":"Av. 201, Cl. 2023",
-  "estado":"NCR",
-  "ciudad":"Delhi"
+  "nombre": "Pepito",
+  "apellido": "Lopez",
+  "email": "cypress@ateneaconocimientos.net",
+  "sexo": "Other",
+  "telefono": "3333333333",
+  "fechaDeNacimiento": [
+    "December",
+    "1990",
+    "31"
+  ],
+  "materia":"English",
+  "hobbies": [
+    "Sports",
+    "Music"
+  ],
+  "imagen": "my-image.png",
+  "direccion": "Alguna dirección ficticia",
+  "estado": "NCR",
+  "ciudad": "Delhi"
 }
