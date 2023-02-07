@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 //Suite de casos de pruebas
-describe('Conjunto de casos de pruebas avanzados', function(){
+describe('Conjunto de casos de pruebas avanzados con Data Driven', function(){
 
     before(function(){
             //Cargarmos los valores desde el JSON
