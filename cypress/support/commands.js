@@ -39,7 +39,7 @@ Cypress.Commands.add('agregarElementoAlCarrito', (nombreDeProducto) => {
                     if (producto.includes(nombreDeProducto)) {
                         cy.log('Se ha encontrado el elemento buscado')
                         cy.get('@contenedorDeProductos').eq(index).find('button[data-bs-original-title^="Add to Cart"]').click() 
-                        //cy.get('.alert').should('have.text',' Success: You have added ' + nombreDeProducto + ' to your shopping cart! ')                    
+                        cy.get('.alert').should('have.text',' Success: You have added ' + nombreDeProducto + ' to your shopping cart! ')                    
                                 
                     } else {
                         cy.log('No consiguio el producto')                             

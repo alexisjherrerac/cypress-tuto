@@ -3,21 +3,19 @@
 
 describe('Suite de casos de pruebas Avazandas ', function () {
 
-    before(function(){
-
-        //Cargarmos los valores desde el JSON
-        cy.fixture("carrito").then(function(datos){
-
-            this.datos = datos
-                                      
+    before(function () {
+        //Cargamos los valores del archivo example.json en un objeto de datos
+        cy.fixture('carritoDeCompra').then((data) => {
+          this.data = data
         })
-
+        cy.log('This: ' + this.data)
     })
-    
-    beforeEach(()=>{
 
+    beforeEach(()=>{
         //Ingresar a la pagina de compra de alticulos
         cy.visit('https://demo.opencart.com/')
+        cy.log('This: ' + this.data.telefono1)
+
     })
 
     it('Compra de celular basado en su id', () => {
@@ -28,10 +26,10 @@ describe('Suite de casos de pruebas Avazandas ', function () {
         //div[class='product-thumb']:has(.description) h4 a .button-group > button[data-bs-original-title^="Add to Cart"]
         //div[class='product-thumb']:has(.description):contains('HTC Touch HD') button[data-bs-original-title^="Add to Cart"]
 
-        cy.log(this.datos.telefono1)
-        cy.agregarElementoAlCarrito(this.datos.telefono1)
-        cy.agregarElementoAlCarrito(this.datos.telefono2)
-        cy.agregarElementoAlCarrito(this.datos.telefono3)
+        cy.log(this.data.telefono1)
+        cy.agregarElementoAlCarrito(this.data.telefono1)
+        cy.agregarElementoAlCarrito(this.data.telefono2)
+        cy.agregarElementoAlCarrito(this.data.telefono3)
 
     });
     
