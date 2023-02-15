@@ -13,7 +13,9 @@ describe('Suite de casos de pruebas Avazandas ', function () {
         cy.get('#menu ul a:contains("Phones & PDAs")').click()
         cy.get('h2').should('have.text','Phones & PDAs')
 
-        //div[class='product-thumb']:has(.caption) h4 a button[onclick^='cart.add']
+        //div[class='product-thumb']:has(.description) h4 a .button-group > button[data-bs-original-title^="Add to Cart"]
+        //div[class='product-thumb']:has(.description):contains('HTC Touch HD') button[data-bs-original-title^="Add to Cart"]
+
         cy.get("div[class='product-thumb']").as('contenedorDeProductos')
 
         cy.get("@contenedorDeProductos")
@@ -25,8 +27,8 @@ describe('Suite de casos de pruebas Avazandas ', function () {
 
                     if (producto.includes('HTC Touch HD')) {
                         cy.log('Se ha encontrado el elemento buscado')
-                        cy.get('@contenedorDeProductos .button-group').eq(index).contains('Add to Cart').click()
-                       
+                        cy.get('@contenedorDeProductos').eq(index).find('button[data-bs-original-title^="Add to Cart"]').click() 
+                        cy.get('.alert').should('have.text',' Success: You have added ' + 'HTC Touch HD' + ' to your shopping cart! ')                    
                                 
                     } else {
                         cy.log('No consiguio el producto')                             
