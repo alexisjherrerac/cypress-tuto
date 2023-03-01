@@ -4,11 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "node_modules\\.bin\\cypress open",
+    "test": "node_modules\\.bin\\cypress run",
+    "testChrome": "npm run test -- --browser chrome --headless",
+    "testFirefox": "npm run test -- --browser firefox --headless",
+    "testEdge": "npm run test -- --browser edge --headless"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.4.0"
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress": "^12.4.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }

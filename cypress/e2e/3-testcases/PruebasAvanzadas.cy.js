@@ -1,6 +1,5 @@
 /// <reference types="cypress"/>
 
-
 describe('Tercer feature de casos avanzados', function () {
     before(function () {
         //Cargamos los valores del archivo example.json en un objeto de datos
@@ -10,7 +9,7 @@ describe('Tercer feature de casos avanzados', function () {
     })
     beforeEach(() => {
         //ingresar a la pagina de compra de articulos tecnologicos
-        cy.visit("https://demo.opencart.com/index.php")
+        cy.visit(Cypress.env('baseUrl') + "/index.php")
     })
 
     it('Compra de celular basado en su id', function()  {
